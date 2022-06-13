@@ -1,0 +1,18 @@
+{
+  "id": 3,
+  "name": "CertficateGroup",
+  "useJavaTrustStore": false,
+  "systemGroup": false,
+  "ignoreAllCertificateErrors": false,
+  "skipCertificateDateCheck": false,
+  "revocationChecking": {
+    "crlChecking": false,
+    "ocsp": false,
+    "denyRevocationStatusUnknown": false,
+    "supportDisorderedChain": false,
+    "skipTrustAnchors": false
+  },
+  "certIds": [
+    1
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "description": null,
+  "issuer": "https://172.17.0.2:9031",
+  "trustedCertificateGroupId": 3,
+  "useProxy": false,
+  "useSlo": false,
+  "stsTokenExchangeEndpoint": null,
+  "skipHostnameVerification": true
+}

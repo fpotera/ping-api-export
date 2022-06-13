@@ -1,0 +1,39 @@
+{
+  "id": 1,
+  "enabled": true,
+  "agentCacheInvalidatedResponseDuration": 900,
+  "agentCacheInvalidatedExpiration": 1654784224389,
+  "lastModified": 1654783324389,
+  "requireHTTPS": true,
+  "name": "TestApp1",
+  "description": "",
+  "manualOrderingEnabled": false,
+  "resourceOrder": [],
+  "applicationType": "Web",
+  "defaultAuthType": "Web",
+  "spaSupportEnabled": true,
+  "fallbackPostEncoding": "UTF-8",
+  "destination": "Site",
+  "contextRoot": "/myApp1",
+  "realm": null,
+  "caseSensitivePath": false,
+  "allowEmptyPathSegments": false,
+  "webSessionId": 1,
+  "issuer": null,
+  "siteId": 1,
+  "agentId": 0,
+  "sidebandClientId": null,
+  "virtualHostIds": [
+    1
+  ],
+  "identityMappingIds": {
+    "Web": 0,
+    "API": 0
+  },
+  "accessValidatorId": 0,
+  "policy": {
+    "Web": [],
+    "API": []
+  },
+  "authenticationChallengePolicyId": null
+}

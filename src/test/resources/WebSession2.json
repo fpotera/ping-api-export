@@ -1,0 +1,36 @@
+{
+  "id": 2,
+  "name": "TestSession2",
+  "pkceChallengeType": "SHA256",
+  "oidcLoginType": "Code",
+  "webStorageType": "SessionStorage",
+  "requestProfile": true,
+  "scopes": [
+    "address",
+    "email",
+    "phone",
+    "profile"
+  ],
+  "refreshUserInfoClaimsInterval": 60,
+  "requestPreservationType": "POST",
+  "cacheUserAttributes": false,
+  "enableRefreshUser": true,
+  "sendRequestedUrlToProvider": true,
+  "validateSessionIsAlive": false,
+  "failOnUnsupportedPreservationContentType": false,
+  "clientCredentials": {
+    "clientId": "TestApp2-WEB",
+    "clientSecret": {
+      "value": "haha"
+    }
+  },
+  "idleTimeoutInMinutes": 60,
+  "sessionTimeoutInMinutes": 240,
+  "audience": "Audience_",
+  "cookieDomain": "",
+  "cookieType": "Encrypted",
+  "httpOnlyCookie": true,
+  "secureCookie": true,
+  "sameSite": "Lax",
+  "pfsessionStateCacheInSeconds": 60
+}

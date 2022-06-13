@@ -1,0 +1,38 @@
+{
+  "id": 839,
+  "name": "DRB-ROUT-HYP-WebSession_DEV",
+  "clientCredentials": {
+    "clientId": "DRB-ROUT-HYP-WEB_DEV",
+    "clientSecret": {
+      "encryptedValue": "OBF:JWE:eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoieEFYUjFDZVUxVSJ9..DOXkniLFH7-nv_wJlvNyFQ.mCWSBTxCDiCc5sOTDMO7t4ypBm7oLbyINFqqAtj70aVbFXW24sc9P8vAY2_SLlD_B87koA_OG_-nFLuRznTka54pg4Ibd5GuFmo0zYIavx8.LmwMap-nzC1oy9q9CRqawQ"
+    },
+    "keyPairId": 0,
+    "credentialsType": "SECRET"
+  },
+  "scopes": [
+    "address",
+    "email",
+    "phone",
+    "profile"
+  ],
+  "validateSessionIsAlive": true,
+  "cacheUserAttributes": true,
+  "enableRefreshUser": true,
+  "sendRequestedUrlToProvider": true,
+  "refreshUserInfoClaimsInterval": 60,
+  "oidcLoginType": "Code",
+  "requestPreservationType": "All",
+  "webStorageType": "SessionStorage",
+  "pkceChallengeType": "SHA256",
+  "audience": "DRB-ROUT-HYP",
+  "cookieDomain": "",
+  "cookieType": "Signed",
+  "httpOnlyCookie": true,
+  "idleTimeoutInMinutes": 120,
+  "sessionTimeoutInMinutes": 120,
+  "secureCookie": true,
+  "sameSite": "None",
+  "requestProfile": true,
+  "failOnUnsupportedPreservationContentType": false,
+  "pfsessionStateCacheInSeconds": 1
+}

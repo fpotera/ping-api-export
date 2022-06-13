@@ -1,0 +1,44 @@
+{
+  "clientId": "TestApp2",
+  "enabled": true,
+  "redirectUris": [
+    "http://localhost:1080"
+  ],
+  "grantTypes": [
+    "IMPLICIT"
+  ],
+  "name": "TestApp2",
+  "description": "",
+  "logoUrl": "",
+  "refreshRolling": "SERVER_DEFAULT",
+  "refreshTokenRollingIntervalType": "SERVER_DEFAULT",
+  "persistentGrantExpirationType": "SERVER_DEFAULT",
+  "persistentGrantExpirationTime": 0,
+  "persistentGrantExpirationTimeUnit": "DAYS",
+  "persistentGrantIdleTimeoutType": "SERVER_DEFAULT",
+  "persistentGrantIdleTimeout": 0,
+  "persistentGrantIdleTimeoutTimeUnit": "DAYS",
+  "persistentGrantReuseType": "SERVER_DEFAULT",
+  "allowAuthenticationApiInit": false,
+  "bypassApprovalPage": false,
+  "restrictScopes": false,
+  "requirePushedAuthorizationRequests": false,
+  "restrictedScopes": [],
+  "exclusiveScopes": [],
+  "restrictedResponseTypes": [],
+  "restrictToDefaultAccessTokenManager": false,
+  "validateUsingAllEligibleAtms": false,
+  "oidcPolicy": {
+    "grantAccessSessionRevocationApi": false,
+    "grantAccessSessionSessionManagementApi": false,
+    "pingAccessLogoutCapable": false,
+    "pairwiseIdentifierUserType": false
+  },
+  "clientAuth": {
+    "type": "NONE"
+  },
+  "deviceFlowSettingType": "SERVER_DEFAULT",
+  "requireProofKeyForCodeExchange": false,
+  "refreshTokenRollingGracePeriodType": "SERVER_DEFAULT",
+  "requireSignedRequests": false
+}

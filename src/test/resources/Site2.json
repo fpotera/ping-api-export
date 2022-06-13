@@ -1,0 +1,20 @@
+{
+  "id": 2,
+  "name": "MySite2",
+  "targets": [
+    "localhost:80"
+  ],
+  "secure": false,
+  "trustedCertificateGroupId": 0,
+  "sendPaCookie": true,
+  "useTargetHostHeader": false,
+  "keepAliveTimeout": 0,
+  "maxConnections": -1,
+  "maxWebSocketConnections": -1,
+  "siteAuthenticatorIds": [],
+  "skipHostnameVerification": false,
+  "expectedHostname": null,
+  "availabilityProfileId": 1,
+  "loadBalancingStrategyId": 0,
+  "useProxy": false
+}

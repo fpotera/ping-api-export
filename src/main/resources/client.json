@@ -1,0 +1,64 @@
+{
+  "clientId": "DRB-ROUT-HYP",
+  "enabled": true,
+  "redirectUris": [
+    "http://localhost:9090",
+    "https://pfp-hyp.dev.pi.wien01.rbgi.at/bankingquer-routing-app/routing-app-ui/*",
+    "https://pfp-hyp.devpo.pi.wien01.rbgi.at/bankingquer-routing-app/routing-app-ui/*"
+  ],
+  "grantTypes": [
+    "AUTHORIZATION_CODE"
+  ],
+  "name": "DRB-ROUT-HYP",
+  "description": "",
+  "logoUrl": "",
+  "refreshRolling": "SERVER_DEFAULT",
+  "refreshTokenRollingIntervalType": "SERVER_DEFAULT",
+  "persistentGrantExpirationType": "OVERRIDE_SERVER_DEFAULT",
+  "persistentGrantExpirationTime": 2,
+  "persistentGrantExpirationTimeUnit": "HOURS",
+  "persistentGrantIdleTimeoutType": "SERVER_DEFAULT",
+  "persistentGrantIdleTimeout": 0,
+  "persistentGrantIdleTimeoutTimeUnit": "DAYS",
+  "allowAuthenticationApiInit": false,
+  "bypassApprovalPage": true,
+  "restrictScopes": true,
+  "requirePushedAuthorizationRequests": false,
+  "restrictedScopes": [
+    "address",
+    "edit",
+    "email",
+    "offline_access",
+    "openid",
+    "phone",
+    "profile"
+  ],
+  "exclusiveScopes": [
+    "product-ui-pfp",
+    "ui-pfp"
+  ],
+  "restrictedResponseTypes": [],
+  "defaultAccessTokenManagerRef": {
+    "id": "DRB2CUSTOMERTokenWEBJWT",
+    "location": "https://xldrbd100.prod01.r-dc.net:9999/pf-admin-api/v1/oauth/accessTokenManagers/DRB2CUSTOMERTokenWEBJWT"
+  },
+  "restrictToDefaultAccessTokenManager": false,
+  "validateUsingAllEligibleAtms": false,
+  "oidcPolicy": {
+    "policyGroup": {
+      "id": "DRB2-CUSTOMER-OIDC_JWT",
+      "location": "https://xldrbd100.prod01.r-dc.net:9999/pf-admin-api/v1/oauth/openIdConnect/policies/DRB2-CUSTOMER-OIDC_JWT"
+    },
+    "grantAccessSessionRevocationApi": false,
+    "grantAccessSessionSessionManagementApi": false,
+    "pingAccessLogoutCapable": false,
+    "pairwiseIdentifierUserType": false
+  },
+  "clientAuth": {
+    "type": "NONE"
+  },
+  "deviceFlowSettingType": "SERVER_DEFAULT",
+  "requireProofKeyForCodeExchange": false,
+  "refreshTokenRollingGracePeriodType": "SERVER_DEFAULT",
+  "requireSignedRequests": false
+}

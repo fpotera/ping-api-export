@@ -1,0 +1,40 @@
+{
+    "items": [{
+            "name": "<application name>",
+            "vitualhosts": [
+                "vhost1",
+                "vhost2"
+            ],
+
+            "full_path": [
+                "/play-org/sb/api/*",
+                "/rbg-at/public-dev/*"
+            ],
+            "rootContext": "<application_root_context>",
+            "resourcen": [{
+                    "name": "resource_name",
+                    "path": [
+                        "/play-org/sb/api/*",
+                        "/rbg-at/public-dev/*",
+
+                    ]
+                }
+            ],
+            "client": {
+                "client_id": "<client_id>",
+                "redirectUris": [
+                    "http://localhost:9090",
+                    "https://pfp-pos.dev.pi.wien01.rbgi.at/bankingquer-routing-app/routing-app-ui/*",
+                    "https://pfp-pos.devpo.pi.wien01.rbgi.at/bankingquer-routing-app/routing-app-ui/*"
+                ],
+                "grantTypes": [
+                    "AUTHORIZATION_CODE"
+                ], ,
+                "exclusiveScopes": [
+                    "product-ui-pfp",
+                    "ui-pfp"
+                ]
+            }
+        }
+    ]
+}

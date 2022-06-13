@@ -1,0 +1,207 @@
+{
+  "items": [
+    {
+      "id": 2653,
+      "name": "entry",
+      "methods": [
+        "*"
+      ],
+      "pathPatterns": [
+        {
+          "pattern": "/nav/*",
+          "type": "WILDCARD"
+        },
+        {
+          "pattern": "/modulstore/*",
+          "type": "WILDCARD"
+        },
+        {
+          "pattern": "/oform/*",
+          "type": "WILDCARD"
+        },
+        {
+          "pattern": "/as/*",
+          "type": "WILDCARD"
+        },
+        {
+          "pattern": "/",
+          "type": "WILDCARD"
+        },
+        {
+          "pattern": "/index.html",
+          "type": "WILDCARD"
+        },
+        {
+          "pattern": "/ws/*",
+          "type": "WILDCARD"
+        },
+        {
+          "pattern": "/e2e/*",
+          "type": "WILDCARD"
+        }
+      ],
+      "pathPrefixes": [
+        "/nav/*",
+        "/modulstore/*",
+        "/oform/*",
+        "/as/*",
+        "/",
+        "/index.html",
+        "/ws/*",
+        "/e2e/*"
+      ],
+      "auditLevel": "ON",
+      "rootResource": false,
+      "anonymous": false,
+      "enabled": true,
+      "unprotected": false,
+      "policy": {
+        "Web": [
+          {
+            "type": "Rule",
+            "id": 22
+          },
+          {
+            "type": "Rule",
+            "id": 24
+          }
+        ],
+        "API": []
+      },
+      "defaultAuthTypeOverride": "Web",
+      "applicationId": 1426,
+      "queryParamConfig": null,
+      "resourceType": "Standard",
+      "resourceTypeConfiguration": {
+        "responseGenerator": null
+      },
+      "authenticationChallengePolicyId": null
+    },
+    {
+      "id": 2652,
+      "name": "web",
+      "methods": [
+        "*"
+      ],
+      "pathPatterns": [
+        {
+          "pattern": "/*.js",
+          "type": "WILDCARD"
+        },
+        {
+          "pattern": "/*.woff",
+          "type": "WILDCARD"
+        },
+        {
+          "pattern": "/*.woff2",
+          "type": "WILDCARD"
+        },
+        {
+          "pattern": "/*.css",
+          "type": "WILDCARD"
+        },
+        {
+          "pattern": "/rest/web/*",
+          "type": "WILDCARD"
+        },
+        {
+          "pattern": "/assets/*",
+          "type": "WILDCARD"
+        },
+        {
+          "pattern": "/favicon.ico",
+          "type": "WILDCARD"
+        },
+        {
+          "pattern": "/rest/meta/config",
+          "type": "WILDCARD"
+        },
+        {
+          "pattern": "/css/*",
+          "type": "WILDCARD"
+        },
+        {
+          "pattern": "/*.ttf",
+          "type": "WILDCARD"
+        },
+        {
+          "pattern": "/*.html",
+          "type": "WILDCARD"
+        },
+        {
+          "pattern": "/js/*",
+          "type": "WILDCARD"
+        }
+      ],
+      "pathPrefixes": [
+        "/*.js",
+        "/*.woff",
+        "/*.woff2",
+        "/*.css",
+        "/rest/web/*",
+        "/assets/*",
+        "/favicon.ico",
+        "/rest/meta/config",
+        "/css/*",
+        "/*.ttf",
+        "/*.html",
+        "/js/*"
+      ],
+      "auditLevel": "ON",
+      "rootResource": false,
+      "anonymous": false,
+      "enabled": true,
+      "unprotected": false,
+      "policy": {
+        "Web": [],
+        "API": []
+      },
+      "defaultAuthTypeOverride": "Web",
+      "applicationId": 1426,
+      "queryParamConfig": null,
+      "resourceType": "Standard",
+      "resourceTypeConfiguration": {
+        "responseGenerator": null
+      },
+      "authenticationChallengePolicyId": null
+    },
+    {
+      "id": 786,
+      "name": "Root Resource",
+      "methods": [
+        "*"
+      ],
+      "pathPatterns": [
+        {
+          "pattern": "/*",
+          "type": "WILDCARD"
+        }
+      ],
+      "pathPrefixes": [
+        "/*"
+      ],
+      "auditLevel": "ON",
+      "rootResource": true,
+      "anonymous": true,
+      "enabled": true,
+      "unprotected": false,
+      "policy": {
+        "Web": [
+          {
+            "type": "Rule",
+            "id": 12
+          }
+        ],
+        "API": []
+      },
+      "defaultAuthTypeOverride": null,
+      "applicationId": 1426,
+      "queryParamConfig": null,
+      "resourceType": "Standard",
+      "resourceTypeConfiguration": {
+        "responseGenerator": null
+      },
+      "authenticationChallengePolicyId": null
+    }
+  ]
+}

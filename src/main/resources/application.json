@@ -1,0 +1,48 @@
+{
+  "items": [
+    {
+      "id": 1426,
+      "enabled": true,
+      "agentCacheInvalidatedResponseDuration": 900,
+      "agentCacheInvalidatedExpiration": 1652346808119,
+      "lastModified": 1652345908119,
+      "requireHTTPS": false,
+      "name": "at.rsg.bankingquer.routing-app:routing-app-ui-war_HYP-DEV-WEB",
+      "description": "",
+      "manualOrderingEnabled": false,
+      "resourceOrder": [],
+      "applicationType": "Web",
+      "defaultAuthType": "Web",
+      "spaSupportEnabled": false,
+      "fallbackPostEncoding": "UTF-8",
+      "destination": "Site",
+      "contextRoot": "/bankingquer-routing-app/routing-app-ui",
+      "realm": null,
+      "caseSensitivePath": false,
+      "allowEmptyPathSegments": false,
+      "webSessionId": 839,
+      "issuer": "https://idp-hyp.dev.pi.wien01.rbgi.at",
+      "siteId": 17,
+      "agentId": 0,
+      "sidebandClientId": null,
+      "virtualHostIds": [
+        66
+      ],
+      "identityMappingIds": {
+        "Web": 67,
+        "API": 0
+      },
+      "accessValidatorId": 0,
+      "policy": {
+        "Web": [
+          {
+            "type": "Rule",
+            "id": 57
+          }
+        ],
+        "API": []
+      },
+      "authenticationChallengePolicyId": null
+    }
+  ]
+}

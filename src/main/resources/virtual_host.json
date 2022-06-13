@@ -1,0 +1,8 @@
+{
+  "id": 66,
+  "host": "pfp-hyp.dev.pi.wien01.rbgi.at",
+  "port": 443,
+  "agentResourceCacheTTL": 900,
+  "keyPairId": 0,
+  "trustedCertificateGroupId": 0
+}

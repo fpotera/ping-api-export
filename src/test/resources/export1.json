@@ -1,0 +1,23 @@
+{"items": [{
+     "fullPaths": ["/myApp1/*"],
+     "virtualHosts": [{
+         "trustedCertificateGroupId": 0,
+         "port": 3000,
+         "host": "localhost",
+         "id": 1,
+         "keyPairId": 0,
+         "agentResourceCacheTTL": 900
+     }],
+     "name": "TestApp1",
+     "resources": [{
+         "paths": ["/*"],
+         "name": "Root Resource"
+     }],
+     "client": {
+         "grantTypes": ["AUTHORIZATION_CODE"],
+         "clientId": "TestApp1",
+         "redirectUris": ["http://localhost:4200/"],
+         "exclusiveScopes": []
+     },
+     "contextRoot": "/myApp1"
+ }]}
