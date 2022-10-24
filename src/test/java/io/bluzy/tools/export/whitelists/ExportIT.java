@@ -29,14 +29,6 @@ public class ExportIT {
     private static PingAccessContainer pingAccessContainer = new PingAccessContainer(false, INTERFACE1);
 
     @Test
-    void testToken() throws IOException {
-        String token = new OAuthPasswordGrantFlow("https://idp.tst.pi.wien01.rbgi.at/as/token.oauth2",
-                "WhiteListExporter", "Test1234!", "WhiteListExporter", "PAAPIRead").passwordGrantFlow();
-        JSONObject jsonObject = new JSONObject(token);
-        assertDoesNotThrow(()->jsonObject.get("access_token"), "OAuth call to obtain access token failed.");
-    }
-
-    @Test
     void test1App() throws Exception {
         Main.main(new String[]{"-zone", "TEST", "-app", "TestApp1"});
 
