@@ -92,4 +92,12 @@ public class DockerContainer {
         dockerConnection.removeContainer(imageName);
         dockerConnection.disconnect();
     }
+
+    public void connectToNetwork(String networkId) {
+        if(isNull(dockerConnection)) {
+            dockerConnection = new DockerConnection(dockerUrl, false);
+        }
+
+        dockerConnection.connectContainerToNetwork(getContainer().getId(), networkId);
+    }
 }

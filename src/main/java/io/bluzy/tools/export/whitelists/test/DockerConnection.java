@@ -115,22 +115,6 @@ public class DockerConnection {
         String containerId = getContainerId(containerName);
         if (nonNull(containerId)) {
             dockerClient.startContainerCmd(containerId).exec();
-
-
-
-/*            String networkId = getNetwork("PingNetwork").getId();
-
-            System.out.println("###### containerId: "+containerId);
-            System.out.println("###### networkId: "+networkId);
-
-            Object res = dockerClient.connectToNetworkCmd()
-                    .withContainerId(getContainerId(containerName))
-                    .withNetworkId(getNetwork("PingNetwork").getId())
-                    .exec();
-
-            System.out.println("###### res: "+res);
-
- */
         }
     }
 
@@ -216,6 +200,13 @@ public class DockerConnection {
         List<Network> networks = dockerClient.listNetworksCmd().exec();
         return networks.stream().filter(n->n.getName().equals(networkName))
                 .findFirst().orElse(null);
+    }
+
+    public void connectContainerToNetwork(String containerId, String networkId) {
+        dockerClient.connectToNetworkCmd()
+                .withContainerId(containerId)
+                .withNetworkId(networkId)
+                .exec();
     }
 
     private void connect() {

@@ -1,10 +1,6 @@
 package io.bluzy.tools.export.whitelists;
 
-import io.bluzy.tools.export.whitelists.auth.OAuthPasswordGrantFlow;
-import io.bluzy.tools.export.whitelists.test.PingAccessContainer;
-import io.bluzy.tools.export.whitelists.test.PingFederateContainer;
 import org.json.JSONObject;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -16,17 +12,15 @@ import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
+import static io.bluzy.tools.export.whitelists.config.URLs.*;
+import static io.bluzy.tools.export.whitelists.test.PingConfig.PING_FEDERATE_HOST;
+import static java.text.MessageFormat.format;
+import static java.util.Map.entry;
+import static java.util.Map.ofEntries;
 import static org.apache.hc.core5.http.Method.PUT;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ExportIT {
-
-    public static final String INTERFACE1 = "127.0.0.1";
-    public static final String INTERFACE2 = "192.168.178.51";
-
-    private static PingFederateContainer pingFederateContainer = new PingFederateContainer(false, INTERFACE2);
-
-    private static PingAccessContainer pingAccessContainer = new PingAccessContainer(false, INTERFACE1);
 
     @Test
     void test1App() throws Exception {
@@ -50,35 +44,31 @@ public class ExportIT {
 
     @BeforeAll
     static void beforeAll() throws IOException, URISyntaxException {
+
         PingFederateAPIConfigurator apiConfigurator = new PingFederateAPIConfigurator();
 
-        apiConfigurator.applyConfigChange("https://localhost:9000/pa-admin-api/v3/webSessions", "/WebSession1.json", null);
-        apiConfigurator.applyConfigChange("https://localhost:9000/pa-admin-api/v3/webSessions", "/WebSession2.json", null);
+        apiConfigurator.applyConfigChange(PING_ACC_WEB_SESSIONS_URL, "/WebSession1.json", null);
+        apiConfigurator.applyConfigChange(PING_ACC_WEB_SESSIONS_URL, "/WebSession2.json", null);
 
-        apiConfigurator.applyConfigChange("https://localhost:9000/pa-admin-api/v3/sites", "/Site1.json", null);
-        apiConfigurator.applyConfigChange("https://localhost:9000/pa-admin-api/v3/sites", "/Site2.json", null);
+        apiConfigurator.applyConfigChange(PING_ACC_SITES_URL, "/Site1.json", null);
+        apiConfigurator.applyConfigChange(PING_ACC_SITES_URL, "/Site2.json", null);
 
-        String pfCertificates = apiConfigurator.getConfig("https://192.168.178.51:9999/pf-admin-api/v1/keyPairs/sslServer");
+        String pfCertificates = apiConfigurator.getConfig(PING_FED_SSL_SERV_URL);
         String certId = new JSONObject(pfCertificates).getJSONArray("items").getJSONObject(0).getString("id");
-        String cert = apiConfigurator.getConfig("https://192.168.178.51:9999/pf-admin-api/v1/keyPairs/sslServer/"+certId+"/certificate");
+        String PING_FED_SSL_SERV_CERT_URL = format("https://{0}:9999/pf-admin-api/v1/keyPairs/sslServer/{1}/certificate", PING_FEDERATE_HOST, certId);
+        String cert = apiConfigurator.getConfig(PING_FED_SSL_SERV_CERT_URL);
         cert = cert.lines().filter(l->!l.contains("CERTIFICATE")).collect(Collectors.joining());
         JSONObject certReq = new JSONObject();
         certReq.put("alias", "PingFederateCertificate");
         certReq.put("fileData", cert);
-        apiConfigurator.postConfig("https://localhost:9000/pa-admin-api/v3/certificates", certReq.toString());
-        apiConfigurator.applyConfigChange("https://localhost:9000/pa-admin-api/v3/trustedCertificateGroups", "/CertificateGroup.json", null);
-        apiConfigurator.applyConfigChange("https://localhost:9000/pa-admin-api/v3/pingfederate/runtime", "/PingFederateRuntime.json", null, PUT);
+        apiConfigurator.postConfig(PING_ACC_CERTIFICATES_URL, certReq.toString());
+        apiConfigurator.applyConfigChange(PING_ACC_CERT_GROUPS_URL, "/CertificateGroup.json", null);
+        apiConfigurator.applyConfigChange(PING_ACC_FED_RUNTIME_URL, "/PingFederateRuntime.json", ofEntries(entry("%host%", PING_FEDERATE_HOST)), PUT);
 
-        apiConfigurator.applyConfigChange("https://localhost:9000/pa-admin-api/v3/applications", "/Application1.json", null);
-        apiConfigurator.applyConfigChange("https://localhost:9000/pa-admin-api/v3/applications", "/Application2.json", null);
+        apiConfigurator.applyConfigChange(PING_ACC_APPLICATIONS_URL, "/Application1.json", null);
+        apiConfigurator.applyConfigChange(PING_ACC_APPLICATIONS_URL, "/Application2.json", null);
 
-        apiConfigurator.applyConfigChange("https://192.168.178.51:9999/pf-admin-api/v1/oauth/clients", "/oAuthClient1.json", null);
-        apiConfigurator.applyConfigChange("https://192.168.178.51:9999/pf-admin-api/v1/oauth/clients", "/oAuthClient2.json", null);
-    }
-
-    @AfterAll
-    static void afterAll() throws Exception {
-        pingAccessContainer.shutDown();
-        pingFederateContainer.shutDown();
+        apiConfigurator.applyConfigChange(PING_FED_CLIENTS_URL, "/oAuthClient1.json", null);
+        apiConfigurator.applyConfigChange(PING_FED_CLIENTS_URL, "/oAuthClient2.json", null);
     }
 }

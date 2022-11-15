@@ -1,7 +1,7 @@
 package io.bluzy.tools.export.whitelists.test;
 
-public class PingAccessContainer extends DockerContainer {
-    private static final String DOCKER_URL = "tcp://localhost:2375";
+public class PingAccessContainer extends DockerContainer implements DockerConfig {
+
     private static final String REPO = "pingidentity/pingaccess";
     private static final String TAG = "edge";
     private static final String IMAGE_NAME = "pingaccess";
