@@ -1,0 +1,93 @@
+version: "3.9"
+
+#-------------------------------------------------------------------------------------
+#- Ping Identity PingAccess getting started demo
+#-
+#-                +---------------+
+#-                |   PingAccess  |
+#-                +---------------+
+#-
+#- To access PingAccess Console
+#-
+#-    https://localhost:9000/
+#-
+#-    Username: administrator
+#-    Password: 2FederateM0re
+#-------------------------------------------------------------------------------------
+
+#-------------------------------------------------------------------------------------
+#- Ping Identity PingFederate getting started demo
+#-
+#-                +---------------+
+#-                | PingFederate  |
+#-                +---------------+
+#-
+#- To access PingFederate Console
+#-
+#-    https://localhost:9999/pingfederate/app
+#-
+#-    Username: administrator
+#-    Password: 2FederateM0re
+#-------------------------------------------------------------------------------------
+
+services:
+
+  pingaccess:
+    image: ${PING_IDENTITY_DEVOPS_REGISTRY:-docker.io/pingidentity}/pingaccess:${PING_IDENTITY_DEVOPS_TAG:-edge}
+    # You may need to comment this tmpfs line if you run containers on windows
+    tmpfs: /run/secrets
+    environment:
+      - SERVER_PROFILE_URL=https://github.com/pingidentity/pingidentity-server-profiles.git
+      - SERVER_PROFILE_PATH=getting-started/pingaccess
+    env_file:
+      - ${HOME}/.pingidentity/config
+    ports:
+      - "3000:3000"
+      - "9000:9000"
+    networks:
+      - pingnet
+    volumes:
+      - pingaccess-out:/opt/out
+
+  pingfederate:
+    image: ${PING_IDENTITY_DEVOPS_REGISTRY:-docker.io/pingidentity}/pingfederate:${PING_IDENTITY_DEVOPS_TAG:-edge}
+    # You may need to comment this tmpfs line if you run containers on windows
+    tmpfs: /run/secrets
+    environment:
+      - SERVER_PROFILE_URL=https://github.com/pingidentity/pingidentity-server-profiles.git
+      - SERVER_PROFILE_PATH=getting-started/pingfederate
+      - PF_LDAP_USERNAME="Administrator"
+      - PF_LDAP_PASSWORD="2FederateM0re"
+    env_file:
+      - ${HOME}/.pingidentity/config
+    ports:
+      - "9031:9031"
+      - "9999:9999"
+    networks:
+      - pingnet
+    volumes:
+      - pingfederate-out:/opt/out
+
+  java-test:
+    image: java-test
+    build:
+      context: ../
+      target: java-test
+    networks:
+      - pingnet
+    volumes:
+      - type: bind
+        source: /var/run/docker.sock
+        target: /var/run/docker.sock
+    depends_on:
+      pingaccess:
+        condition: service_healthy
+      pingfederate:
+        condition: service_healthy
+
+networks:
+  pingnet:
+
+volumes:
+  pingaccess-out:
+  pingfederate-out:

@@ -182,7 +182,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>io.bluzy.tools.export.whitelists.test.ExecStartTestContainers</mainClass>
+                    <mainClass>io.bluzy.tools.export.whitelists.test.ExecMakeTLSConfig</mainClass>
                 </configuration>
             </plugin>
             <plugin>

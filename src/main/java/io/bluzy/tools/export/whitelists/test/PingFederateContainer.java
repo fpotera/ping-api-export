@@ -1,8 +1,7 @@
 package io.bluzy.tools.export.whitelists.test;
 
-public class PingFederateContainer extends DockerContainer {
+public class PingFederateContainer extends DockerContainer implements DockerConfig {
 
-    private static final String DOCKER_URL = "tcp://localhost:2375";
     private static final String REPO = "pingidentity/pingfederate";
     private static final String TAG = "edge";
     private static final String IMAGE_NAME = "pingfederate";
