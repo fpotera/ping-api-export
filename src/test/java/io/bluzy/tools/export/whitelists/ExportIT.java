@@ -63,7 +63,7 @@ public class ExportIT {
         certReq.put("fileData", cert);
         apiConfigurator.postConfig(PING_ACC_CERTIFICATES_URL, certReq.toString());
         apiConfigurator.applyConfigChange(PING_ACC_CERT_GROUPS_URL, "/CertificateGroup.json", null);
-        apiConfigurator.applyConfigChange(PING_ACC_FED_RUNTIME_URL, "/PingFederateRuntime.json", ofEntries(entry("%host%", PING_FEDERATE_HOST)), PUT);
+        apiConfigurator.applyConfigChange(PING_ACC_FED_RUNTIME_URL, "/PingFederateRuntime.json", null, PUT);
 
         apiConfigurator.applyConfigChange(PING_ACC_APPLICATIONS_URL, "/Application1.json", null);
         apiConfigurator.applyConfigChange(PING_ACC_APPLICATIONS_URL, "/Application2.json", null);
