@@ -1,6 +1,6 @@
 {
   "description": null,
-  "issuer": "https://%host%:9031",
+  "issuer": "https://pingfederate:9031",
   "trustedCertificateGroupId": 3,
   "useProxy": false,
   "useSlo": false,
